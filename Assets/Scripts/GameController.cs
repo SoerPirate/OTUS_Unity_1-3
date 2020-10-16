@@ -4,11 +4,13 @@ using System;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Diagnostics;
 
 public class GameController : MonoBehaviour
 {
     public CanvasGroup buttonPanel;
-    public Button button;
+    public CanvasGroup pausePanel;
+    public Button button, buttonPause;
     public Character[] playerCharacter;
     public Character[] enemyCharacter;
     Character currentTarget;
@@ -26,12 +28,12 @@ public class GameController : MonoBehaviour
 
     void PlayerWon()
     {
-        Debug.Log("Player won.");
+        UnityEngine.Debug.Log("Player won.");
     }
 
     void PlayerLost()
     {
-        Debug.Log("Player lost.");
+        UnityEngine.Debug.Log("Player lost.");
     }
 
     bool CheckEndGame()
@@ -66,6 +68,13 @@ public class GameController : MonoBehaviour
                 return;
             }
         }
+    }
+
+    public void Pause()
+    {
+        UnityEngine.Debug.Log("Pause");
+        Utility.SetCanvasGroupEnabled(buttonPanel, false);
+        Utility.SetCanvasGroupEnabled(pausePanel, true);
     }
 
     IEnumerator GameLoop()
@@ -120,7 +129,9 @@ public class GameController : MonoBehaviour
     void Start()
     {
         button.onClick.AddListener(PlayerAttack);
+        
         Utility.SetCanvasGroupEnabled(buttonPanel, false);
+        Utility.SetCanvasGroupEnabled(pausePanel, false);
         StartCoroutine(GameLoop());
     }
 

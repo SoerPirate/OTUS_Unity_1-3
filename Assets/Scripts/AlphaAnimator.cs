@@ -15,8 +15,8 @@ public class AlphaAnimator : MonoBehaviour
     void FixedUpdate()
     {
         if (group.alpha < targetAlpha)
-            group.alpha += 0.1f;
+            group.alpha += 1f;
         else if (group.alpha > targetAlpha)
-            group.alpha -= 0.1f;
+            group.alpha -= 1f;
     }
 }
