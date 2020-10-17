@@ -5,6 +5,8 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Diagnostics;
+using UnityEngine.SceneManagement;
+
 
 public class GameController : MonoBehaviour
 {
@@ -15,6 +17,7 @@ public class GameController : MonoBehaviour
     public Character[] enemyCharacter;
     Character currentTarget;
     bool waitingForInput;
+    
 
     Character FirstAliveCharacter(Character[] characters)
     {
@@ -72,10 +75,29 @@ public class GameController : MonoBehaviour
 
     public void Pause()
     {
-        UnityEngine.Debug.Log("Pause");
         Utility.SetCanvasGroupEnabled(buttonPanel, false);
         Utility.SetCanvasGroupEnabled(pausePanel, true);
     }
+
+    public void Continue()
+    {
+        Utility.SetCanvasGroupEnabled(buttonPanel, true);
+        Utility.SetCanvasGroupEnabled(pausePanel, false);
+    }
+
+
+    public void Restart()
+    {
+        string curentScene = SceneManager.GetActiveScene().name;
+        LoadingScreen.instance.LoadScene(curentScene);
+    }
+
+
+    public void MainMenu()
+    {
+        LoadingScreen.instance.LoadScene("MainMenu");
+    }
+
 
     IEnumerator GameLoop()
     {
