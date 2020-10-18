@@ -2590,6 +2590,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hooligan 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5063603457768733596, guid: 10c2f798f720e614a93d929742385835,
+        type: 3}
+      propertyPath: current
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8633522308280683377, guid: 10c2f798f720e614a93d929742385835,
         type: 3}
       propertyPath: target
@@ -5504,6 +5509,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 373214052}
     m_Modifications:
+    - target: {fileID: 186934557577024890, guid: 7069c9812e2b61a4897267e66e5134da,
+        type: 3}
+      propertyPath: current
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3678871026723857815, guid: 7069c9812e2b61a4897267e66e5134da,
         type: 3}
       propertyPath: target
@@ -5925,6 +5935,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hooligan 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5063603457768733596, guid: 268fe3416a5e8cf4694a8632f9cb8c4d,
+        type: 3}
+      propertyPath: current
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8633522308280683377, guid: 268fe3416a5e8cf4694a8632f9cb8c4d,
         type: 3}
       propertyPath: target
@@ -5939,6 +5954,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 373214052}
     m_Modifications:
+    - target: {fileID: 186934557577024890, guid: 7069c9812e2b61a4897267e66e5134da,
+        type: 3}
+      propertyPath: current
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3678871026723857815, guid: 7069c9812e2b61a4897267e66e5134da,
         type: 3}
       propertyPath: target
