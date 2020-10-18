@@ -59,15 +59,15 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.5380117
-        functionName: ShootEnd
+      - time: 0.48245615
+        functionName: DoDamage
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.51754385
-        functionName: DoDamage
+      - time: 0.49707603
+        functionName: ShootEnd
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

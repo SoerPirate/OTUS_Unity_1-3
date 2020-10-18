@@ -156,6 +156,7 @@ public class Character : MonoBehaviour
                 break;
 
             case State.BeginShoot:
+                transform.LookAt(target);
                 animator.SetTrigger("Shoot");
                 state = State.Shoot;
                 break;
