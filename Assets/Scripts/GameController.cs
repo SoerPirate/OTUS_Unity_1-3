@@ -4,15 +4,24 @@ using System;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Diagnostics;
+using UnityEngine.SceneManagement;
+using TMPro;
+
 
 public class GameController : MonoBehaviour
 {
     public CanvasGroup buttonPanel;
-    public Button button;
+    public CanvasGroup pausePanel;
+    public CanvasGroup endGamePanel;
+    public Button button, buttonPause;
     public Character[] playerCharacter;
     public Character[] enemyCharacter;
     Character currentTarget;
     bool waitingForInput;
+    public TextMeshProUGUI view;
+    
+    
 
     Character FirstAliveCharacter(Character[] characters)
     {
@@ -26,12 +35,22 @@ public class GameController : MonoBehaviour
 
     void PlayerWon()
     {
-        Debug.Log("Player won.");
+        Utility.SetCanvasGroupEnabled(buttonPanel, false);
+        Utility.SetCanvasGroupEnabled(pausePanel, false);
+        Utility.SetCanvasGroupEnabled(endGamePanel, true);
+        
+        view = endGamePanel.GetComponentInChildren<TextMeshProUGUI>();
+        view.text = "Player won.";
     }
 
     void PlayerLost()
     {
-        Debug.Log("Player lost.");
+        Utility.SetCanvasGroupEnabled(buttonPanel, false);
+        Utility.SetCanvasGroupEnabled(pausePanel, false);
+        Utility.SetCanvasGroupEnabled(endGamePanel, true);
+
+        view = endGamePanel.GetComponentInChildren<TextMeshProUGUI>();
+        view.text = "Player lost.";
     }
 
     bool CheckEndGame()
@@ -67,6 +86,32 @@ public class GameController : MonoBehaviour
             }
         }
     }
+
+    public void Pause()
+    {
+        Utility.SetCanvasGroupEnabled(buttonPanel, false);
+        Utility.SetCanvasGroupEnabled(pausePanel, true);
+    }
+
+    public void Continue()
+    {
+        Utility.SetCanvasGroupEnabled(buttonPanel, true);
+        Utility.SetCanvasGroupEnabled(pausePanel, false);
+    }
+
+
+    public void Restart()
+    {
+        string curentScene = SceneManager.GetActiveScene().name;
+        LoadingScreen.instance.LoadScene(curentScene);
+    }
+
+
+    public void MainMenu()
+    {
+        LoadingScreen.instance.LoadScene("MainMenu");
+    }
+
 
     IEnumerator GameLoop()
     {
@@ -120,7 +165,9 @@ public class GameController : MonoBehaviour
     void Start()
     {
         button.onClick.AddListener(PlayerAttack);
+        
         Utility.SetCanvasGroupEnabled(buttonPanel, false);
+        Utility.SetCanvasGroupEnabled(pausePanel, false);
         StartCoroutine(GameLoop());
     }
 
