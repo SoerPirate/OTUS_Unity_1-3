@@ -118,8 +118,11 @@ public class GameController : MonoBehaviour
         yield return null;
         while (!CheckEndGame()) {
             foreach (var player in playerCharacter) {
-                if (!player.IsDead()) {
-                    currentTarget = FirstAliveCharacter(enemyCharacter);
+                if (!player.IsDead()) 
+                {
+                    if (currentTarget == null || currentTarget.IsDead())
+                        currentTarget = FirstAliveCharacter(enemyCharacter);
+                    
                     if (currentTarget == null)
                         break;
 
