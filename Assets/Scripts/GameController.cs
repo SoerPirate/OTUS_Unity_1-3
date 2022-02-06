@@ -120,7 +120,7 @@ public class GameController : MonoBehaviour
             foreach (var player in playerCharacter) {
                 if (!player.IsDead()) 
                 {
-                    if (currentTarget == null || currentTarget.IsDead())
+                    if (currentTarget == null || currentTarget.IsDead())  // добавил чтобы не искал новую цель, если уже есть цель (пока она не мертва)
                         currentTarget = FirstAliveCharacter(enemyCharacter);
                     
                     if (currentTarget == null)
